@@ -7,7 +7,7 @@ import FilterBar from "../components/FilterBar";
 import TaskCard from "../components/TaskCard";
 import RightPanel from "../components/RightPanel";
 
-const API = "http://localhost:5000/api";
+const API = "/api";
 
 const DashboardPage = ({ onAddTask, onEditTask }) => {
   const { user, token } = useAuth();

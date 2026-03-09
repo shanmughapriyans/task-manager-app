@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+const API = "/api";
 const PRIORITIES = [
   { value: "low", label: "🟢 Low" },
   { value: "medium", label: "🟡 Medium" },
