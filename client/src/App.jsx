@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import DashboardPage from "./pages/DashboardPage";
+import TaskForm from "./components/TaskForm";
 
 function App() {
   // Task form state — lifted here so DashboardPage can trigger it
@@ -44,7 +45,13 @@ function App() {
                   onAddTask={openAddForm}
                   onEditTask={openEditForm}
                 />
-                {/* TaskForm will be rendered here in M7 */}
+                {taskForm.open && (
+                  <TaskForm
+                    editTask={taskForm.editTask}
+                    onClose={closeForm}
+                    onRefresh={taskForm.onRefresh}
+                  />
+                )}
               </ProtectedRoute>
             }
           />
@@ -55,3 +62,4 @@ function App() {
 }
 
 export default App;
+
