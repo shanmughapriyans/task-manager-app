@@ -17,6 +17,7 @@ mongoose
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/tasks", require("./routes/tasks"));
 
 // Health check route
 app.get("/", (req, res) => {
