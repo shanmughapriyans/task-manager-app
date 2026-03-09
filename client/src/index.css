@@ -6,34 +6,31 @@
 }
 
 body {
-  background: #F8F9FB;
-  color: #111827;
+  background: #141414;
+  color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
-/* Date input dark calendar icon fix */
+/* Date input */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.5);
+  filter: invert(0.7);
   cursor: pointer;
 }
 
 /* Card base */
 .card {
-  background: #ffffff;
-  border: 1px solid #E5E7EB;
+  background: #1E1E1E;
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: box-shadow 200ms ease-out, transform 200ms ease-out, border-color 200ms ease-out;
 }
-.card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
-}
+.card:hover { border-color: rgba(255,255,255,0.12); }
 
 /* Sidebar icon button */
 .sidebar-icon {
@@ -43,12 +40,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  color: #9CA3AF;
+  color: #555;
   transition: background 200ms ease-out, color 200ms ease-out;
   cursor: pointer;
 }
-.sidebar-icon:hover { background: #F3F4F6; color: #374151; }
-.sidebar-icon.active { background: #EEF2FF; color: #3B82F6; }
+.sidebar-icon:hover { background: rgba(255,255,255,0.07); color: #CCC; }
+.sidebar-icon.active  { background: rgba(249,115,22,0.15); color: #F97316; }
 
 /* Task card hover lift */
 .task-card-hover {
@@ -56,19 +53,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .task-card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: #BFDBFE;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+  border-color: rgba(249,115,22,0.25);
 }
 
 /* Progress bar */
-.progress-bar {
-  height: 4px;
-  border-radius: 99px;
-  background: #E5E7EB;
-  overflow: hidden;
+.progress-bar { height: 4px; border-radius: 99px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.progress-bar-fill { height: 100%; border-radius: 99px; transition: width 600ms ease-out; }
+
+/* Input base (dark) */
+.input-dark {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #FFFFFF;
+  border-radius: 12px;
+  transition: border-color 200ms, box-shadow 200ms;
 }
-.progress-bar-fill {
-  height: 100%;
-  border-radius: 99px;
-  transition: width 600ms ease-out;
+.input-dark::placeholder { color: #555; }
+.input-dark:focus {
+  outline: none;
+  border-color: #F97316;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
 }

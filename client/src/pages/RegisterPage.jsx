@@ -23,17 +23,16 @@ const RegisterPage = () => {
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FB] flex">
+    <div className="min-h-screen flex" style={{ background: "#141414" }}>
       {/* Left panel */}
-      <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-blue-600 to-blue-800 flex-col justify-between p-12">
+      <div className="hidden lg:flex w-1/2 flex-col justify-between p-12"
+        style={{ background: "#0D0D0D", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#F97316", boxShadow: "0 4px 16px rgba(249,115,22,0.4)" }}>
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
@@ -44,16 +43,14 @@ const RegisterPage = () => {
           <h2 className="text-white text-3xl font-bold leading-snug mb-4">
             Start organizing<br />your work today.
           </h2>
-          <p className="text-blue-200 text-sm">
-            Join TaskFlow and get a beautiful, fast dashboard<br />to manage all your tasks in one place.
-          </p>
-          <div className="mt-8 space-y-3">
-            {["✓  Create and manage tasks with priorities", "✓  Track progress with beautiful analytics", "✓  Filter by status, priority, or due date", "✓  Access your data from anywhere"].map((f) => (
-              <p key={f} className="text-blue-100 text-sm">{f}</p>
+          <p className="text-sm mb-8" style={{ color: "#555" }}>Join TaskFlow — a beautiful, fast dashboard to manage all your tasks.</p>
+          <div className="space-y-3">
+            {["✓  Create and manage tasks with priorities", "✓  Track progress with live analytics", "✓  Filter by status, priority, or due date", "✓  Access your data from anywhere"].map((f) => (
+              <p key={f} className="text-sm" style={{ color: "#777" }}>{f}</p>
             ))}
           </div>
         </div>
-        <p className="text-blue-300 text-xs">© 2026 TaskFlow. All rights reserved.</p>
+        <p className="text-xs" style={{ color: "#333" }}>© 2026 TaskFlow</p>
       </div>
 
       {/* Right form */}
@@ -61,49 +58,51 @@ const RegisterPage = () => {
         <div className="w-full max-w-sm">
           <div className="mb-8">
             <div className="flex items-center gap-2 lg:hidden mb-6">
-              <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "#F97316" }}>
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <span className="font-bold text-gray-900">TaskFlow</span>
+              <span className="font-bold text-white">TaskFlow</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Create an account</h1>
-            <p className="text-gray-500 text-sm mt-1">Get started with TaskFlow for free</p>
+            <h1 className="text-2xl font-bold text-white">Create an account</h1>
+            <p className="text-sm mt-1" style={{ color: "#555" }}>Get started with TaskFlow for free</p>
           </div>
 
           {error && (
-            <div className="mb-5 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-medium">{error}</div>
+            <div className="mb-5 px-4 py-3 rounded-xl text-sm font-medium"
+              style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", color: "#F87171" }}>
+              {error}
+            </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">Full Name</label>
-              <input id="register-name" type="text" name="name" value={form.name} onChange={handleChange} placeholder="John Doe" required
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-gray-900 text-sm placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition shadow-sm" />
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: "#777" }}>Full Name</label>
+              <input id="register-name" type="text" name="name" value={form.name} onChange={handleChange}
+                placeholder="John Doe" required className="input-dark w-full px-4 py-3 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">Email address</label>
-              <input id="register-email" type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-gray-900 text-sm placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition shadow-sm" />
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: "#777" }}>Email address</label>
+              <input id="register-email" type="email" name="email" value={form.email} onChange={handleChange}
+                placeholder="you@example.com" required className="input-dark w-full px-4 py-3 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">Password <span className="text-gray-400 font-normal">(min. 6 characters)</span></label>
-              <input id="register-password" type="password" name="password" value={form.password} onChange={handleChange} placeholder="••••••••" required
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-gray-900 text-sm placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition shadow-sm" />
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: "#777" }}>
+                Password <span className="font-normal" style={{ color: "#444" }}>(min. 6 chars)</span>
+              </label>
+              <input id="register-password" type="password" name="password" value={form.password} onChange={handleChange}
+                placeholder="••••••••" required className="input-dark w-full px-4 py-3 text-sm" />
             </div>
             <button id="register-submit" type="submit" disabled={loading}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold
-                         rounded-xl transition-all duration-200 text-sm shadow-lg shadow-blue-500/25 mt-2">
+              className="w-full py-3 text-white font-semibold rounded-xl transition-all text-sm mt-2"
+              style={{ background: "#F97316", opacity: loading ? 0.6 : 1, boxShadow: "0 4px 20px rgba(249,115,22,0.35)" }}>
               {loading ? "Creating account…" : "Create Account"}
             </button>
           </form>
-          <p className="text-center text-gray-500 text-sm mt-6">
+          <p className="text-center text-sm mt-6" style={{ color: "#555" }}>
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:text-blue-700 font-semibold transition">Sign in</Link>
+            <Link to="/login" className="font-semibold" style={{ color: "#F97316" }}>Sign in</Link>
           </p>
         </div>
       </div>
