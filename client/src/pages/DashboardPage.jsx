@@ -7,7 +7,7 @@ import FilterBar from "../components/FilterBar";
 import TaskCard from "../components/TaskCard";
 import RightPanel from "../components/RightPanel";
 
-const API = import.meta.env.VITE_API_URL || "";
+const API = `${import.meta.env.VITE_API_URL || ""}/api`;
 
 
 const DashboardPage = ({ onAddTask, onEditTask }) => {
