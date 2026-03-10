@@ -7,7 +7,8 @@ import FilterBar from "../components/FilterBar";
 import TaskCard from "../components/TaskCard";
 import RightPanel from "../components/RightPanel";
 
-const API = "/api";
+const API = import.meta.env.VITE_API_URL || "";
+
 
 const DashboardPage = ({ onAddTask, onEditTask }) => {
   const { user, token } = useAuth();

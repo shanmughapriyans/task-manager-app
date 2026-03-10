@@ -17,7 +17,7 @@ const LoginPage = () => {
     setError("");
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/auth/login", form);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL || ""}/api/auth/login`, form);
       login({ _id: data._id, name: data.name, email: data.email }, data.token);
       navigate("/dashboard");
     } catch (err) {

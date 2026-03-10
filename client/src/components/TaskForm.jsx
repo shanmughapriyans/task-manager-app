@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 
-const API = "/api";
+const API = import.meta.env.VITE_API_URL || "";
+
 const PRIORITIES = [
   { value: "low", label: "🟢 Low" },
   { value: "medium", label: "🟡 Medium" },
